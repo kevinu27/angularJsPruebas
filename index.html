@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="yugiohApp">
 
 <head>
     <!-- Remote style sheet -->
@@ -7,21 +7,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-
+    <script src="js/app.js"></script>
 </head>
 
 <body>
-    <div class="container" >
-        <h2> estos son filtros que se aplican</h2>
-        <h3>{{'Hola Mundo Uppercase' | uppercase}}</h3>
-        <h3>{{'Hola Mundo lowercase' | lowercase}}</h3>
-        <h3>filtro de moneda {{5000 | currency}}</h3>
-        <h3>filtro de moneda {{5000 | currency:'€' }}</h3>
-
-        <br>
-
-        <input type="text" ng-model="nombre" class="form-control" placeholder="pon tu nombre aqui">
-        <p> {{ nombre }}</p> 
+    <div class="container" ng-controller="yugiohCardsCrtl as cards">
+    
+<p>{{ cards.cards.carta1 }}</p>
 
     </div> 
 </body>
