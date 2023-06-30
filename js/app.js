@@ -1,8 +1,9 @@
 var app = angular.module('yugiohApp', []) // yugioh es el nombre del proyecto
 
-app.controller('yugiohCardsCrtl', function(){
+app.controller('yugiohCardsCrtl', function($scope){
 
     this.cards = cards
+    $scope.cards = cards
 
 
 })
