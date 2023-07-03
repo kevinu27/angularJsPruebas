@@ -4,11 +4,17 @@ app.controller('yugiohCardsCrtl', function($scope){
 
     this.cards = cards
     $scope.cards = cards
+    $scope.mostrarBoton2 = false
+
+    $scope.mostrarNombreCard = function(){
+        console.log('$scope.cards')
+        $scope.mostrarBoton2 = !$scope.mostrarBoton2
+    }
 
 
 })
 
-var cards = {
+const cards = {
     carta1: 'mago',
     carta2: 'dragon'
 }

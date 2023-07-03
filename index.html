@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="yugiohApp">
+<html ng-app="yugiohApp"> 
 
 <head>
     <!-- Remote style sheet -->
@@ -20,9 +20,20 @@
 <p>{{ cards.carta2 }}</p>
 <br>
 
+<button class="btn btn-primary" ng-click="mostrarNombreCard()">boton</button>
+<button class="btn btn-primary fast" ng-show="mostrarBoton2">boton que desaparece y aparace</button>
 <!-- si pusiesemos una imagen abriam que poner ng-src -->
 
     </div> 
 </body>
 
 </html>
+
+<style>
+    /* .fast{
+        -webkit-animation-duration:4s;
+        animation-duration: 4s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    } */
+</style>
