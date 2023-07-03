@@ -23,8 +23,17 @@
 <button class="btn btn-primary" ng-click="mostrarNombreCard()">boton</button>
 <button class="btn btn-primary fast" ng-show="mostrarBoton2">boton que desaparece y aparace</button>
 <!-- si pusiesemos una imagen abriam que poner ng-src -->
+{{ listaParaBucle | json}}
+<div>
+    <ul>
+        <li ng-repeat="item in listaParaBucle">
+            {{item}}
+        </li>
+    </ul>
+ </div>   
+    
+    </div>
 
-    </div> 
 </body>
 
 </html>

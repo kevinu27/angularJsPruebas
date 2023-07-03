@@ -10,6 +10,7 @@ app.controller('yugiohCardsCrtl', function($scope){
         console.log('$scope.cards')
         $scope.mostrarBoton2 = !$scope.mostrarBoton2
     }
+    $scope.listaParaBucle = ['a', 'v', 'c']
 
 
 })
