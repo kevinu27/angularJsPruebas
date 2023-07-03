@@ -24,6 +24,17 @@
 <button class="btn btn-primary fast" ng-show="mostrarBoton2">boton que desaparece y aparace</button>
 <!-- si pusiesemos una imagen abriam que poner ng-src -->
 {{ listaParaBucle | json}}
+<!-- {{ jsonCards | json}} -->
+
+<ul>
+    <li>
+          <div ng-repeat="image in jsonCardsArrayToIterate">
+    <img ng-src="{{image}}" alt="card" />
+  </div>
+        <!-- <img ng-src="{{ jsonCardsArrayToIterate}}" alt="Girl in a jacket" width="500" height="600"> -->
+    </li>
+</ul>
+
 <div>
     <ul>
         <li ng-repeat="item in listaParaBucle">
