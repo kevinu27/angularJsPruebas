@@ -16,11 +16,11 @@ app.controller('yugiohCardsCrtl', ['$scope', '$http', function($scope, $http){
     $http.get('https://db.ygoprodeck.com/api/v7/cardinfo.php').then(function(data){
         $scope.jsonCards = data
 
-        console.log($scope.jsonCards.data.data[100].card_images[0].image_url)
+        console.log($scope.jsonCards.data.data[100])
         console.log($scope.jsonCards.data.data)
         $scope.jsonCardsArrayToIterate = [] 
         $scope.jsonCards.data.data.forEach(element => {
-            $scope.jsonCardsArrayToIterate.push(element.card_images[0].image_url)
+            $scope.jsonCardsArrayToIterate.push(element)
         });
         console.log('$scope.jsonCardsArrayToIterate', $scope.jsonCardsArrayToIterate)
 

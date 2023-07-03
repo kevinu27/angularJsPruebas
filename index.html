@@ -29,7 +29,10 @@
 <ul>
     <li>
           <div ng-repeat="image in jsonCardsArrayToIterate">
-    <img ng-src="{{image}}" alt="card" />
+            <div ng-show="{{image.atk > 100}}">
+
+                <img ng-src="{{image.card_images[0].image_url}}" alt="card" />
+            </div>
   </div>
         <!-- <img ng-src="{{ jsonCardsArrayToIterate}}" alt="Girl in a jacket" width="500" height="600"> -->
     </li>
