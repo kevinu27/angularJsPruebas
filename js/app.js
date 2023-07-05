@@ -6,13 +6,23 @@ app.controller('yugiohCardsCrtl', ['$scope', '$http', function($scope, $http){
     $scope.cards = cards
     $scope.mostrarCartas= false
     $scope.rutaHtml ='parciales/navbar.html'
+    $scope.cardsData = []
     
-    
+
     $scope.sliderValue = 0;
     $scope.sliderChanged = function() {
+        $scope.jsonCardsArrayToIterate = $scope.cardsData
+        // console.log('$scope.cardsData', $scope.cardsData)
+        console.log('$scope.jsonCardsArrayToIterate', $scope.jsonCardsArrayToIterate)
+
         console.log('Slider value:', $scope.sliderValue);
-        // Perform any additional actions with the updated slider value
-      };
+        // console.log('$scope.jsonCardsArrayToIterate', $scope.jsonCardsArrayToIterate)
+        $scope.jsonCardsArrayToIterate = $scope.jsonCardsArrayToIterate.filter( card => {
+            console.log('$scope.jsonCardsArrayToIterate', card.atk)
+           return  card.atk > $scope.sliderValue
+        })
+        console.log('$scope.jsonCardsArrayToIterate', $scope.jsonCardsArrayToIterate.length)
+    };
 
     $scope.mostrarNombreCard = function(){
         console.log('$scope.cards')
@@ -25,11 +35,11 @@ app.controller('yugiohCardsCrtl', ['$scope', '$http', function($scope, $http){
         while (currentIndex != 0) {
       
           // Pick a remaining element.
-          randomIndex = Math.floor(Math.random() * currentIndex);
-          currentIndex--;
-      
-          // And swap it with the current element.
-          [$scope.jsonCardsArrayToIterate[currentIndex], $scope.jsonCardsArrayToIterate[randomIndex]] = [
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+        
+            // And swap it with the current element.
+            [$scope.jsonCardsArrayToIterate[currentIndex], $scope.jsonCardsArrayToIterate[randomIndex]] = [
             $scope.jsonCardsArrayToIterate[randomIndex], $scope.jsonCardsArrayToIterate[currentIndex]];
         }
       
@@ -53,6 +63,7 @@ app.controller('yugiohCardsCrtl', ['$scope', '$http', function($scope, $http){
 
     $http.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?type=Normal Monster').then(function(data2){
         $scope.jsonCards2 = data2
+        console.log('entro')
 
         console.log($scope.jsonCards2)
         console.log($scope.jsonCards2.data.data[100])
@@ -62,8 +73,10 @@ app.controller('yugiohCardsCrtl', ['$scope', '$http', function($scope, $http){
             $scope.jsonCardsArrayToIterate.push(element)
         });
           console.log('-----', $scope.jsonCardsArrayToIterate)
+        $scope.cardsData = $scope.jsonCardsArrayToIterate
+
+
     })
-        console.log('$scope.jsonCardsArrayToIterate---', $scope.jsonCardsArrayToIterate)
 
 }])
 

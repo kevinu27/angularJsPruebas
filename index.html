@@ -12,31 +12,27 @@
 
 <body>
     <div ng-include="'parciales/navbar.html'"></div>
-    <div class="container" ng-controller="yugiohCardsCrtl as cards">
+        <div class="container" ng-controller="yugiohCardsCrtl as cards">
 
-<button class="btn btn-primary boton-cards" ng-click="mostrarNombreCard()" >show cards</button>
-<button class="btn btn-primary boton-cards" ng-click="barajarNombreCard()" >suffle cards</button>
-<!-- <button class="btn btn-primary fast" ng-show="mostrarCartas">boton que desaparece y aparace</button> -->
-<!-- {{ listaParaBucle | json}} -->
-<!-- {{ jsonCards | json}} -->
-<input type="range" id="volume" name="volume"
-min="0" max="11" ng-model="sliderValue" ng-change="sliderChanged(sliderValue)">
-<label for="volume">Volume</label>
+          <button class="btn btn-primary boton-cards" ng-click="mostrarNombreCard()" >show cards</button>
+          <button class="btn btn-primary boton-cards" ng-click="barajarNombreCard()" >suffle cards</button>
 
-<ul ng-show="mostrarCartas">
-    <li class="list">
-      <div class="image-container flex-container">
-        <div ng-repeat="image in jsonCardsArrayToIterate" ng-show="{{image.atk > 100}}">
-          <img ng-src="{{image.card_images[0].image_url}}" alt="card" class="image" />
-        </div>
+          <input type="range" id="volume" name="volume"
+          min="0" max="5000" ng-model="sliderValue" ng-change="sliderChanged(sliderValue)">
+          <label for="volume"> {{sliderValue}}</label>
+
+          <ul ng-show="mostrarCartas">
+            <li class="list">
+              <div class="image-container flex-container">
+                <div ng-repeat="image in jsonCardsArrayToIterate" ng-show="{{image.atk > 100}}">
+                  <img ng-src="{{image.card_images[0].image_url}}" alt="card" class="image" />
+                </div>
+              </div>
+            </li>
+          </ul>
+
+      
       </div>
-  
-
-    </li>
-  </ul>
-
-    
-    </div>
 
 </body>
 
