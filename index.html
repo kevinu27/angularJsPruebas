@@ -14,45 +14,23 @@
     <div ng-include="'parciales/navbar.html'"></div>
     <div class="container" ng-controller="yugiohCardsCrtl as cards">
 
-
-<p>con scope</p>
-
-<p>{{ cards.carta1 }}</p>
-<p>{{ cards.carta2 }}</p>
-<br>
-
-<button class="btn btn-primary" ng-click="mostrarNombreCard()">boton</button>
-<button class="btn btn-primary fast" ng-show="mostrarBoton2">boton que desaparece y aparace</button>
-<!-- si pusiesemos una imagen abriam que poner ng-src -->
-{{ listaParaBucle | json}}
+<button class="btn btn-primary boton-cards" ng-click="mostrarNombreCard()" >show cards</button>
+<button class="btn btn-primary boton-cards" ng-click="barajarNombreCard()" >suffle cards</button>
+<button class="btn btn-primary fast" ng-show="mostrarCartas">boton que desaparece y aparace</button>
+<!-- {{ listaParaBucle | json}} -->
 <!-- {{ jsonCards | json}} -->
-<ul ng-show="mostrarBoton2">
-    <li>
-      <!-- Flexbox Example -->
+<ul ng-show="mostrarCartas">
+    <li class="list">
       <div class="image-container flex-container">
         <div ng-repeat="image in jsonCardsArrayToIterate" ng-show="{{image.atk > 100}}">
           <img ng-src="{{image.card_images[0].image_url}}" alt="card" class="image" />
         </div>
       </div>
   
-      <!-- CSS Grid Example -->
-      <!--
-      <div class="image-container grid-container">
-        <div ng-repeat="image in jsonCardsArrayToIterate" ng-show="{{image.atk > 100}}">
-          <img ng-src="{{image.card_images[0].image_url}}" alt="card" class="image" />
-        </div>
-      </div>
-      -->
+
     </li>
   </ul>
 
-<div>
-    <ul>
-        <li ng-repeat="item in listaParaBucle">
-            {{item}}
-        </li>
-    </ul>
- </div>   
     
     </div>
 
@@ -73,16 +51,20 @@
     margin: 20px;
   }
 
-  /* Flexbox Example */
   .image-container.flex-container {
     display: flex;
     flex-wrap: wrap;
   }
 
   .image-container.flex-container img {
-    /* width: 25%; */
     box-sizing: border-box;
     padding: 5px;
   }
-    
+
+  .boton-cards{
+    margin-top: 2rem;
+  }
+    .list{
+        list-style: none;
+    }
 </style>

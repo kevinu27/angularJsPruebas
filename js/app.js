@@ -4,14 +4,30 @@ app.controller('yugiohCardsCrtl', ['$scope', '$http', function($scope, $http){
 
     this.cards = cards
     $scope.cards = cards
-    $scope.mostrarBoton2 = false
+    $scope.mostrarCartas= false
     $scope.rutaHtml ='parciales/navbar.html'
 
     $scope.mostrarNombreCard = function(){
         console.log('$scope.cards')
-        $scope.mostrarBoton2 = !$scope.mostrarBoton2
+        $scope.mostrarCartas= !$scope.mostrarCartas
     }
-    $scope.listaParaBucle = ['a', 'v', 'c']
+    $scope.barajarNombreCard = function(){
+        console.log('brajar')
+        // let currentIndex = array.length,  randomIndex;
+          
+        // while (currentIndex != 0) {
+      
+        //   // Pick a remaining element.
+        //   randomIndex = Math.floor(Math.random() * currentIndex);
+        //   currentIndex--;
+      
+        //   // And swap it with the current element.
+        //   [array[currentIndex], array[randomIndex]] = [
+        //     array[randomIndex], array[currentIndex]];
+        // }
+      
+    }
+    // $scope.listaParaBucle = ['a', 'v', 'c']
     $scope.jsonCards = {}
     $scope.jsonCards2 = {}
 
@@ -38,10 +54,9 @@ app.controller('yugiohCardsCrtl', ['$scope', '$http', function($scope, $http){
         $scope.jsonCards2.data.data.forEach(element => {
             $scope.jsonCardsArrayToIterate.push(element)
         });
-        console.log('$scope.jsonCardsArrayToIterate', $scope.jsonCardsArrayToIterate)
-
-
+          console.log('-----', $scope.jsonCardsArrayToIterate)
     })
+        console.log('$scope.jsonCardsArrayToIterate---', $scope.jsonCardsArrayToIterate)
 
 }])
 
