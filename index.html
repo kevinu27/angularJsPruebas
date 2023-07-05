@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <div ng-include="'parciales/navbar.html'"></div>
     <div class="container" ng-controller="yugiohCardsCrtl as cards">
 
 
@@ -25,18 +26,25 @@
 <!-- si pusiesemos una imagen abriam que poner ng-src -->
 {{ listaParaBucle | json}}
 <!-- {{ jsonCards | json}} -->
-
-<ul>
+<ul ng-show="mostrarBoton2">
     <li>
-          <div ng-repeat="image in jsonCardsArrayToIterate">
-            <div ng-show="{{image.atk > 100}}">
-
-                <img ng-src="{{image.card_images[0].image_url}}" alt="card" />
-            </div>
-  </div>
-        <!-- <img ng-src="{{ jsonCardsArrayToIterate}}" alt="Girl in a jacket" width="500" height="600"> -->
+      <!-- Flexbox Example -->
+      <div class="image-container flex-container">
+        <div ng-repeat="image in jsonCardsArrayToIterate" ng-show="{{image.atk > 100}}">
+          <img ng-src="{{image.card_images[0].image_url}}" alt="card" class="image" />
+        </div>
+      </div>
+  
+      <!-- CSS Grid Example -->
+      <!--
+      <div class="image-container grid-container">
+        <div ng-repeat="image in jsonCardsArrayToIterate" ng-show="{{image.atk > 100}}">
+          <img ng-src="{{image.card_images[0].image_url}}" alt="card" class="image" />
+        </div>
+      </div>
+      -->
     </li>
-</ul>
+  </ul>
 
 <div>
     <ul>
@@ -59,4 +67,22 @@
         -webkit-animation-fill-mode: both;
         animation-fill-mode: both;
     } */
+    .image {
+    width: 250px;
+    height: fit-content;
+    margin: 20px;
+  }
+
+  /* Flexbox Example */
+  .image-container.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .image-container.flex-container img {
+    /* width: 25%; */
+    box-sizing: border-box;
+    padding: 5px;
+  }
+    
 </style>
