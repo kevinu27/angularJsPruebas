@@ -16,9 +16,13 @@
 
 <button class="btn btn-primary boton-cards" ng-click="mostrarNombreCard()" >show cards</button>
 <button class="btn btn-primary boton-cards" ng-click="barajarNombreCard()" >suffle cards</button>
-<button class="btn btn-primary fast" ng-show="mostrarCartas">boton que desaparece y aparace</button>
+<!-- <button class="btn btn-primary fast" ng-show="mostrarCartas">boton que desaparece y aparace</button> -->
 <!-- {{ listaParaBucle | json}} -->
 <!-- {{ jsonCards | json}} -->
+<input type="range" id="volume" name="volume"
+min="0" max="11" ng-model="sliderValue" ng-change="sliderChanged(sliderValue)">
+<label for="volume">Volume</label>
+
 <ul ng-show="mostrarCartas">
     <li class="list">
       <div class="image-container flex-container">

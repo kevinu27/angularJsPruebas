@@ -6,6 +6,13 @@ app.controller('yugiohCardsCrtl', ['$scope', '$http', function($scope, $http){
     $scope.cards = cards
     $scope.mostrarCartas= false
     $scope.rutaHtml ='parciales/navbar.html'
+    
+    
+    $scope.sliderValue = 0;
+    $scope.sliderChanged = function() {
+        console.log('Slider value:', $scope.sliderValue);
+        // Perform any additional actions with the updated slider value
+      };
 
     $scope.mostrarNombreCard = function(){
         console.log('$scope.cards')
@@ -13,18 +20,18 @@ app.controller('yugiohCardsCrtl', ['$scope', '$http', function($scope, $http){
     }
     $scope.barajarNombreCard = function(){
         console.log('brajar')
-        // let currentIndex = array.length,  randomIndex;
+        let currentIndex = $scope.jsonCardsArrayToIterate.length,  randomIndex;
           
-        // while (currentIndex != 0) {
+        while (currentIndex != 0) {
       
-        //   // Pick a remaining element.
-        //   randomIndex = Math.floor(Math.random() * currentIndex);
-        //   currentIndex--;
+          // Pick a remaining element.
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex--;
       
-        //   // And swap it with the current element.
-        //   [array[currentIndex], array[randomIndex]] = [
-        //     array[randomIndex], array[currentIndex]];
-        // }
+          // And swap it with the current element.
+          [$scope.jsonCardsArrayToIterate[currentIndex], $scope.jsonCardsArrayToIterate[randomIndex]] = [
+            $scope.jsonCardsArrayToIterate[randomIndex], $scope.jsonCardsArrayToIterate[currentIndex]];
+        }
       
     }
     // $scope.listaParaBucle = ['a', 'v', 'c']
